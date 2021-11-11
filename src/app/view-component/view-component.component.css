@@ -1,0 +1,12 @@
+div span{
+    display: block;
+}
+
+div button{
+    margin-top: 10px;
+}
+
+mat-card{
+    border: green 1px solid;
+    width: 30%;
+}

@@ -1,0 +1,19 @@
+<p>view-component works!</p>
+<mat-card>
+    <mat-card-title>
+        <h1>View Specific Item</h1>
+    </mat-card-title>
+    <mat-card-content>
+        <div>
+            <b>View Title:</b>
+            <span>{{Title}}</span>
+            <b>View Author:</b>
+            <span>{{Author}}</span>
+            <b>View Price:</b>
+            <span>{{Price}}</span>
+        </div>
+    </mat-card-content>
+    <mat-card-actions>
+        <button mat-raised-button color="primary" (click)="goBack()">Go back</button>
+    </mat-card-actions>
+</mat-card>

@@ -1,0 +1,50 @@
+table {
+    width: 60%;
+    overflow-x: auto;
+    overflow-y: hidden;
+    min-width: 500px;
+    background-color: lightgray;
+}
+th.mat-header-cell {
+    text-align: left;
+    max-width: 300px;
+}
+
+::ng-deep .mat-form-field-flex > .mat-form-field-infix { padding: 0.8em !important;}
+
+::ng-deep .mat-form-field-wrapper { bottom: 1em}
+
+::ng-deep .mat-form-field-appearance-outline.mat-form-field-can-float.mat-form-field-should-float .mat-form-field-label {
+    transform: translateY(0.8em) scale(0.75);
+    width: 133.33333%;
+}
+
+.tableDesign ::ng-deep .mat-form-field-appearance-outline.mat-focused .mat-form-field-outline-thick {
+    color: red !important;
+    font-size: 12px;
+}
+
+.tableDesign ::ng-deep .mat-form-field-appearance-outline .mat-form-field-wrapper {
+    margin-top: 25px;
+    width: 75%;
+}
+
+.tableDesign .centerAlignHead{
+    text-align: center;
+}
+
+.mat-form-field--inline{
+    display: inline-block;
+}
+.mat-form-field--inline .mat-form-field {
+    width: 20%;
+    margin-right: 30px;
+}
+
+.mat-form-field--inline button{
+    position: absolute;
+    width: 7.5%;
+    margin-top: -1.29em;
+    padding: 0.6em;
+}
+

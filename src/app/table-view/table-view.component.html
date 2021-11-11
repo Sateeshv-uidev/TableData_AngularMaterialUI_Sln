@@ -1,0 +1,57 @@
+<p>table-view works!</p>
+<div class="mat-form-field--inline">
+  <h2>Editable Dynamic Table</h2>
+    <mat-form-field appearance="outline">
+      <mat-label>type title</mat-label>
+      <input matInput #titleVal >
+    </mat-form-field>
+    <mat-form-field appearance="outline">
+      <mat-label>type author</mat-label>
+      <input matInput #authorVal >
+    </mat-form-field>
+    <mat-form-field appearance="outline">
+      <mat-label>type price</mat-label>
+      <input matInput #priceVal >
+    </mat-form-field>
+    <button mat-button (click)="addRowItem(titleVal.value, authorVal.value, priceVal.value)">ADD</button>
+</div>
+<div class="tableDesign">
+  <table mat-table [dataSource]="dataSource">
+    <ng-container [matColumnDef]="col" *ngFor="let col of displayedFields">
+      <th mat-header-cell *matHeaderCellDef>
+        <span *ngIf="col !== 'isEdit'">
+          {{col}}
+        </span>
+        <span class="centerAlignHead" *ngIf="col === 'isEdit'">
+          Actions
+        </span>
+      </th>
+      <td mat-cell *matCellDef="let element" align="left">
+        <div [ngSwitch]="dataSchema[col]" *ngIf="!element.isEdit">
+          <div *ngSwitchCase="'isEdit'" >
+            <button (click)="element.isEdit = !element.isEdit">Edit</button>
+            <button (click)="viewRedirect(element.id)">View</button>
+            <button (click)="deleteRow(element.id)">Delete</button>
+          </div>
+          <span *ngSwitchDefault>
+            {{element[col]}}
+          </span>
+        </div>
+        <div *ngIf="element.isEdit">
+          <div *ngIf="col === 'isEdit'; else dataField">
+            <button (click)="element.isEdit = !element.isEdit">Save</button>
+            <button (click)="viewRedirect(element.id)">View</button>
+            <button (click)="element.isEdit = !element.isEdit">Delete</button>
+          </div>
+          <ng-template #dataField>
+            <mat-form-field appearance="outline">
+              <input [type]="dataSchema[col]" matInput [(ngModel)]="element[col]">
+            </mat-form-field>
+          </ng-template>
+        </div>
+      </td>
+    </ng-container>
+    <tr mat-header-row *matHeaderRowDef="displayedFields;"></tr>
+    <tr mat-row *matRowDef="let row; columns: displayedFields;"></tr>
+  </table>
+</div>
